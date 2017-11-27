@@ -59,7 +59,7 @@ public class SuccessActivity extends AppCompatActivity {
 
                 // Enter URL address where your json file resides
                 // Even you can make call to php file which returns json data
-                url = new URL("http://192.168.1.185/servicios/fish-search.php");
+                url = new URL("http://172.20.10.4/ProyectoFinal/servicios/fish-search.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block

@@ -45,7 +45,7 @@ public class AdapterFish extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
 
         // load image into imageview using glide
-        Glide.with(context).load("http://192.168.1.185/servicios/images/" + current.fishImage)
+        Glide.with(context).load("http://172.20.10.4/ProyectoFinal//servicios/images/" + current.fishImage)
                 .placeholder(R.drawable.ic_error)
                 .error(R.drawable.ic_error)
                 .into(myHolder.ivFish);

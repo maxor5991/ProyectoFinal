@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             try {
 
                 // Enter URL address where your php file resides
-                url = new URL("http://192.168.1.185/servicios/login.inc.php");
+                url = new URL("http://172.20.10.4/ProyectoFinal/servicios/login.inc.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -166,11 +166,11 @@ public class MainActivity extends AppCompatActivity {
             }else if (result.equalsIgnoreCase("false")){
 
                 // If username and password does not match display a error message
-                Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_LONG).show();
 
             } else if (result.equalsIgnoreCase("exception") || result.equalsIgnoreCase("unsuccessful")) {
 
-                Toast.makeText(MainActivity.this, "OOPs! Something went wrong. Connection Problem.", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "OOPs! Tenemos problemas de conexion", Toast.LENGTH_LONG).show();
 
             }
         }
