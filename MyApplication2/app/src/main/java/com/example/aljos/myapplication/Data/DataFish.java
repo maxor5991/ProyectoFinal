@@ -1,4 +1,4 @@
-package com.example.aljos.myapplication;
+package com.example.aljos.myapplication.Data;
 
 /**
  * Created by aljos on 26/11/2017.

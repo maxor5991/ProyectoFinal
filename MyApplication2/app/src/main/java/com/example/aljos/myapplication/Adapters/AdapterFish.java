@@ -1,4 +1,4 @@
-package com.example.aljos.myapplication;
+package com.example.aljos.myapplication.Adapters;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.example.aljos.myapplication.Data.DataFish;
+import com.example.aljos.myapplication.R;
+
 import java.util.Collections;
 import java.util.List;
 

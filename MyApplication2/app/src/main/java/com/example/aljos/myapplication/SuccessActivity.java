@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
+
+import com.example.aljos.myapplication.Adapters.AdapterFish;
+import com.example.aljos.myapplication.Data.DataFish;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
