@@ -48,14 +48,14 @@ public class AdapterHisto extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         AdapterHisto.MyHolder myHolder= (AdapterHisto.MyHolder) holder;
         DataHistorias current=data.get(position);
         myHolder.textID.setText(current.idHisto);
-        myHolder.textType.setText("Marca: " + current.desHisto);
-        myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
+        myHolder.textDes.setText("Marca: " + current.desHisto);
+       // Darle color a un texto  myHolder.textPrice.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
 
         // load image into imageview using glide
-        Glide.with(context).load("http://172.20.10.4/ProyectoFinal/servicios/images/" + current.fishImage)
-                .placeholder(R.drawable.ic_error)
-                .error(R.drawable.ic_error)
-                .into(myHolder.ivFish);
+       // Glide.with(context).load("http://172.20.10.4/ProyectoFinal/servicios/images/" + current.fishImage)
+         //       .placeholder(R.drawable.ic_error)
+           //     .error(R.drawable.ic_error)
+             //   .into(myHolder.ivFish);
 
     }
 
@@ -63,4 +63,24 @@ public class AdapterHisto extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public int getItemCount() {
         return 0;
     }
+    class MyHolder extends RecyclerView.ViewHolder{
+
+        //TextView textFishName;
+        //ImageView ivFish;
+        //TextView textSize;
+        TextView textID;
+        TextView textDes;
+
+        // create constructor to get widget reference
+        public MyHolder(View itemView) {
+            super(itemView);
+            textID= (TextView) itemView.findViewById(R.id.textFishName);
+           // ivFish= (ImageView) itemView.findViewById(R.id.ivFish);
+          //  textSize = (TextView) itemView.findViewById(R.id.textSize);
+            textDes = (TextView) itemView.findViewById(R.id.textType);
+            //textPrice = (TextView) itemView.findViewById(R.id.textPrice);
+        }
+
+    }
+
 }
