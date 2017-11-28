@@ -1,6 +1,6 @@
 <?php
-include 'config.inc.php';
-/*$connect = mysqli_connect("localhost", "root", "root", "9tutorials"); */
+/*include 'config.inc.php';*/
+$connect = mysqli_connect("localhost", "root", "root", "9tutorials");
 $sql = "SELECT * FROM tbl_histo";  
 $result = mysqli_query($connect, $sql);  
 $json_array = array();  

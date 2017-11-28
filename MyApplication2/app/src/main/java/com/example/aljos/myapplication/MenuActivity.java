@@ -6,6 +6,10 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+
+import com.example.aljos.myapplication.Recycler.HistoActivity;
+import com.example.aljos.myapplication.Recycler.SuccessActivity;
+
 /**
  * Created by aljos on 27/11/2017.
  */
@@ -22,6 +26,11 @@ public class MenuActivity extends Activity {
     public void lista1(View v)
     {
         Intent intent = new Intent(getApplicationContext(), SuccessActivity.class);
+        startActivity(intent);
+    }
+    public void lista2(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), HistoActivity.class);
         startActivity(intent);
     }
 }

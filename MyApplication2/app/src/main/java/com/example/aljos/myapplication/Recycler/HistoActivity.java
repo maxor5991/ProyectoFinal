@@ -1,4 +1,4 @@
-package com.example.aljos.myapplication;
+package com.example.aljos.myapplication.Recycler;
 
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
@@ -8,8 +8,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.example.aljos.myapplication.Adapters.AdapterFish;
-import com.example.aljos.myapplication.Data.DataFish;
+import com.example.aljos.myapplication.Adapters.AdapterHisto;
+import com.example.aljos.myapplication.Data.DataHistorias;
+import com.example.aljos.myapplication.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,25 +25,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SuccessActivity extends AppCompatActivity {
-
+public class HistoActivity extends AppCompatActivity{
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
-    private RecyclerView mRVFishPrice;
-    private AdapterFish mAdapter;
-
-
+    private RecyclerView mRVHistoPrice;
+    private AdapterHisto mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_success);
+        setContentView(R.layout.activity_histo);
 
         new AsyncFetch().execute();
     }
-
     private class AsyncFetch extends AsyncTask<String, String, String> {
-        ProgressDialog pdLoading = new ProgressDialog(SuccessActivity.this);
+        ProgressDialog pdLoading = new ProgressDialog(HistoActivity.this);
         HttpURLConnection conn;
         URL url = null;
 
@@ -63,7 +60,7 @@ public class SuccessActivity extends AppCompatActivity {
 
                 // Enter URL address where your json file resides
                 // Even you can make call to php file which returns json data
-                url = new URL("http://172.20.10.4/ProyectoFinal/servicios/fish-search.php");
+                url = new URL("http://172.20.10.4/ProyectoFinal/servicios/histo-search.php");
 
             } catch (MalformedURLException e) {
                 // TODO Auto-generated catch block
@@ -128,7 +125,7 @@ public class SuccessActivity extends AppCompatActivity {
             //this method will be running on UI thread
 
             pdLoading.dismiss();
-            List<DataFish> data=new ArrayList<>();
+            List<DataHistorias> data=new ArrayList<>();
 
             pdLoading.dismiss();
             try {
@@ -138,23 +135,23 @@ public class SuccessActivity extends AppCompatActivity {
                 // Extract data from json and store into ArrayList as class objects
                 for(int i=0;i<jArray.length();i++){
                     JSONObject json_data = jArray.getJSONObject(i);
-                    DataFish fishData = new DataFish();
-                    fishData.fishImage= json_data.getString("fish_img");
-                    fishData.fishName= json_data.getString("fish_name");
-                    fishData.catName= json_data.getString("cat_name");
-                    fishData.sizeName= json_data.getString("size_name");
-                    fishData.price= json_data.getInt("price");
-                    data.add(fishData);
+                    DataHistorias histoData = new DataHistorias();
+                    //histoData.fishImage= json_data.getString("fish_img");
+                    histoData.idHisto= json_data.getString("id_histo");
+                    histoData.desHisto= json_data.getString("de_histo");
+                    //fishData.sizeName= json_data.getString("size_name");
+                   // fishData.price= json_data.getInt("price");
+                    data.add(histoData);
                 }
 
                 // Setup and Handover data to recyclerview
-                mRVFishPrice = (RecyclerView)findViewById(R.id.fishPriceList);
-                mAdapter = new AdapterFish(SuccessActivity.this, data);
-                mRVFishPrice.setAdapter(mAdapter);
-                mRVFishPrice.setLayoutManager(new LinearLayoutManager(SuccessActivity.this));
+                mRVHistoPrice = (RecyclerView)findViewById(R.id.fishPriceList);
+                mAdapter = new AdapterHisto(HistoActivity.this, data);
+                mRVHistoPrice.setAdapter(mAdapter);
+                mRVHistoPrice.setLayoutManager(new LinearLayoutManager(HistoActivity.this));
 
             } catch (JSONException e) {
-                Toast.makeText(SuccessActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(HistoActivity.this, e.toString(), Toast.LENGTH_LONG).show();
             }
 
         }

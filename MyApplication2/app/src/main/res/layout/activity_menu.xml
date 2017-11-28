@@ -17,6 +17,7 @@
         android:layout_height="90dp"
         android:text="Componentes TOP"/>
     <Button
+        android:onClick="lista2"
         android:layout_width="fill_parent"
         android:layout_height="90dp"
         android:text="Reseñas"/>
